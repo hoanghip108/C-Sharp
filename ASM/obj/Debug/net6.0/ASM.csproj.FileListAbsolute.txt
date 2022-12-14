@@ -1,0 +1,15 @@
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\bin\Debug\net6.0\ASM.exe
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\bin\Debug\net6.0\ASM.deps.json
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\bin\Debug\net6.0\ASM.runtimeconfig.json
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\bin\Debug\net6.0\ASM.dll
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\bin\Debug\net6.0\ASM.pdb
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\obj\Debug\net6.0\ASM.csproj.AssemblyReference.cache
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\obj\Debug\net6.0\ASM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\obj\Debug\net6.0\ASM.AssemblyInfoInputs.cache
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\obj\Debug\net6.0\ASM.AssemblyInfo.cs
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\obj\Debug\net6.0\ASM.csproj.CoreCompileInputs.cache
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\obj\Debug\net6.0\ASM.dll
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\obj\Debug\net6.0\refint\ASM.dll
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\obj\Debug\net6.0\ASM.pdb
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\obj\Debug\net6.0\ASM.genruntimeconfig.cache
+C:\Users\hoang\OneDrive\Desktop\Quan 1651\CSharp\asm\obj\Debug\net6.0\ref\ASM.dll
