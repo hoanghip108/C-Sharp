@@ -1,13 +1,17 @@
 using System;
 namespace ASM
 {
-    public class Manger:User
+    public class Manager:User
     {
-        public int ID { get; set; }
+        public  override int Role
+    {
+        get { return 1; }
+        set { value = 1; }
+    }
         
-        public Manger()
+        public Manager()
         {
-                ID = 1;
+                this.Role = 1;    
                 this.Fullname = "Manager 1";
                 this.Dob = "10/08/2000";
                 this.Phone = "0333804202";
@@ -15,12 +19,55 @@ namespace ASM
                 this.Username = "hoanghip108";
                 this.Password = "123123";
         }
-        public void AddBook(string title,string author){
+        public bool Login()
+        {                          
+            Console.WriteLine("Please re-enter your username");        
+            string? checkusr = Console.ReadLine();
+            Console.WriteLine("Please re-enter your password");
+            string? checkpass = Console.ReadLine();
             
-            listBook.Add(new Book(title,author));
-            foreach (var book in listBook)
+           
+                if(checkusr == Username && checkpass == Password)
+                {
+                    Console.WriteLine("successfully logged in");
+                    UserProgram.Logged=true;
+                    return true;
+                }
+                else
+                {
+                    
+                    return false;
+                }
+            
+        }
+        public void AddBook()
+        {
+            if(Login()==false)
             {
-                Console.WriteLine(book.title);
+                System.Console.WriteLine("You don't have permission'");
+            }
+            else
+            {
+                Console.WriteLine("Enter title: " );
+                string? title = Console.ReadLine();
+                Console.WriteLine("Enter Author: " );
+                string? author = Console.ReadLine();
+                listBook.Add(new Book(title,author));          
+            }
+        }
+        public void DelBook()
+        {
+            if(Login()==false)
+            {
+                System.Console.WriteLine("You don't have permission'");
+            }
+            else
+            {
+                Console.WriteLine("Enter title: " );
+                string? title = Console.ReadLine();
+                Console.WriteLine("Enter Author: " );
+                string? author = Console.ReadLine();
+                listBook.Remove( User.listBook.Single( s => s.title == title ) );  
             }
         }
         public void AddCategory(){}
