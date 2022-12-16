@@ -20,6 +20,7 @@ namespace ASM
             System.Console.WriteLine("6. Display all book");
             System.Console.WriteLine("7. Add New Book");
             System.Console.WriteLine("8. Delete Book");
+            System.Console.WriteLine("9. Logout");
             System.Console.WriteLine("0. Exit");           
         }
 
@@ -31,13 +32,20 @@ namespace ASM
                 case 2: Login();                               break;               
                 case 3: RentBooks();                           break;
                 case 4: ReturnBooks();                         break;
-                case 5: DisplayAllMebers();                    break;
+                case 5: DisplayAllMembers();                   break;
                 case 6: DisplayAllBooks();                     break;
                 case 7: manager1.AddBook();                    break;
                 case 8: manager1.DelBook();                    break;
+                case 9: Logout();                              break;
                 case 0: Console.WriteLine("Bye!");             break;
                 default: Console.WriteLine("Invalid choice!"); break;                
             }           
+        }
+        public void Logout(){
+            if(Logged==true) {
+                System.Console.WriteLine("See you latter!!!");
+                Logged = false;
+            }
         }
         public void DisplayAllBooks()
         {Console.WriteLine("*******************");
@@ -68,8 +76,7 @@ namespace ASM
                     Console.WriteLine("Wrong username or password");
                 }
             }
-        }
-        
+        }     
         public void RentBooks()
         {
             if(Logged==false)
@@ -102,7 +109,7 @@ namespace ASM
             RegisteredUser.rentbooks.Remove( RegisteredUser.rentbooks.Single( s => s.title == name ) );
             System.Console.WriteLine("successfully!");
         }
-        private void DisplayAllMebers()
+        private void DisplayAllMembers()
         {
             
             if(User.users.Count() == 0){
@@ -111,8 +118,18 @@ namespace ASM
             else
             {
                 foreach (User e in User.users)
-                {
+                {   Console.WriteLine("**********");
+                    Console.Write("*Fullname: ");
                     Console.WriteLine(e.Fullname);
+                    Console.Write("*Date of birth: ");
+                    Console.WriteLine(e.Dob);
+                    Console.Write("*Phonenumber: ");
+                    Console.WriteLine(e.Phone);
+                    Console.Write("*Gender: ");
+                    Console.WriteLine(e.Gender);
+                    Console.Write("*Username: ");
+                    Console.WriteLine(e.Username);
+                    Console.WriteLine("**********");
                 }
             }
         }

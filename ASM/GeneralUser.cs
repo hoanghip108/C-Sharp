@@ -3,13 +3,8 @@ namespace ASM
 {
     public class GeneralUser:User
     {
-        //public  static List<RegisteredUser> users = new List<RegisteredUser>();
         public GeneralUser(){}
-         public override int Role
-    {
-        get { return 0; }
-        set { value = 0; }
-    }
+
         public static void Register()
         {
             Console.WriteLine("Enter your name: ");

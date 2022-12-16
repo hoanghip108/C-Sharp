@@ -3,15 +3,9 @@ namespace ASM
 {
     public class Manager:User
     {
-        public  override int Role
-    {
-        get { return 1; }
-        set { value = 1; }
-    }
         
         public Manager()
-        {
-                this.Role = 1;    
+        {              
                 this.Fullname = "Manager 1";
                 this.Dob = "10/08/2000";
                 this.Phone = "0333804202";
@@ -24,9 +18,7 @@ namespace ASM
             Console.WriteLine("Please re-enter your username");        
             string? checkusr = Console.ReadLine();
             Console.WriteLine("Please re-enter your password");
-            string? checkpass = Console.ReadLine();
-            
-           
+            string? checkpass = Console.ReadLine();  
                 if(checkusr == Username && checkpass == Password)
                 {
                     Console.WriteLine("successfully logged in");
@@ -69,7 +61,6 @@ namespace ASM
                 string? author = Console.ReadLine();
                 listBook.Remove( User.listBook.Single( s => s.title == title ) );  
             }
-        }
-        public void AddCategory(){}
+        }       
     }
 }
