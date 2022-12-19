@@ -7,7 +7,12 @@ namespace ASM
 {
     public class UserProgram : MenuProgram
     {       
-        public List<Book> listBook = User.listBook;    
+        public List<Book> listBook = User.listBook; 
+        public static List<User> users;
+        public UserProgram()
+        {
+            users = new List<User>();
+        }   
         Manager manager1 = new Manager();
         public static bool Logged = false;
         protected override void PrintMenu()
@@ -28,7 +33,7 @@ namespace ASM
         {
             switch (choice)
             {
-                case 1: GeneralUser.Register();                break;
+                case 1: Register();                            break;
                 case 2: Login();                               break;               
                 case 3: RentBooks();                           break;
                 case 4: ReturnBooks();                         break;
@@ -40,6 +45,9 @@ namespace ASM
                 case 0: Console.WriteLine("Bye!");             break;
                 default: Console.WriteLine("Invalid choice!"); break;                
             }           
+        }
+        public void Register() {
+            users.Add(GeneralUser.Register());
         }
         public void Logout(){
             if(Logged==true) {
@@ -58,24 +66,30 @@ namespace ASM
             }
         }
         public void Login()
-        {                          
-            Console.WriteLine("Enter username");        
-            string? checkusr = Console.ReadLine();
-            Console.WriteLine("Enter password");
-            string? checkpass = Console.ReadLine();
-            
-            foreach (var user in User.users)
+        {                  
+            if(Logged==true){
+                System.Console.WriteLine("You have been logged in!!!");
+            }  
+            else
             {
-                if(checkusr == manager1.Username && checkpass == manager1.Password)
+                Console.WriteLine("Enter username");        
+                string? checkusr = Console.ReadLine();
+                Console.WriteLine("Enter password");
+                string? checkpass = Console.ReadLine();
+                
+                foreach (var user in users)
                 {
-                    Console.WriteLine(" successfully logged in");
-                    Logged = true;
+                    if(checkusr == user.Username && checkpass == user.Password)
+                    {
+                        Console.WriteLine(" successfully logged in");
+                        Logged = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong username or password");
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("Wrong username or password");
-                }
-            }
+            }      
         }     
         public void RentBooks()
         {
@@ -98,6 +112,7 @@ namespace ASM
                     else
                     {
                         Console.WriteLine("Our library does not contains that book!");
+                        break;
                     }
                 }
             }
@@ -112,13 +127,15 @@ namespace ASM
         private void DisplayAllMembers()
         {
             
-            if(User.users.Count() == 0){
+            if(users.Count() == 0){
                 System.Console.WriteLine("There is no user in database");
             }
             else
             {
-                foreach (User e in User.users)
+                foreach (User e in users)
                 {   Console.WriteLine("**********");
+                    Console.Write("*ID: ");
+                    Console.WriteLine(e.ID);
                     Console.Write("*Fullname: ");
                     Console.WriteLine(e.Fullname);
                     Console.Write("*Date of birth: ");
@@ -129,6 +146,7 @@ namespace ASM
                     Console.WriteLine(e.Gender);
                     Console.Write("*Username: ");
                     Console.WriteLine(e.Username);
+                    Console.WriteLine(e.Role);
                     Console.WriteLine("**********");
                 }
             }

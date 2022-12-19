@@ -1,16 +1,18 @@
 using System;
 namespace ASM
 {
+    
     public class Manager:User
     {
+        public string role { get; set; }
         
-        public Manager()
-        {              
+        public Manager():base()
+        {       role="admin";
                 this.Fullname = "Manager 1";
                 this.Dob = "10/08/2000";
                 this.Phone = "0333804202";
                 this.Gender = "Nam";
-                this.Username = "hoanghip108";
+                this.Username = "Quan";
                 this.Password = "123123";
         }
         public bool Login()

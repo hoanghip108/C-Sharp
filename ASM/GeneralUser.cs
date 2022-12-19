@@ -3,12 +3,14 @@ namespace ASM
 {
     public class GeneralUser:User
     {
-        public GeneralUser(){}
-
-        public static void Register()
+        public static string role { get; set; }
+        public static User Register()
         {
+            role = "Registered";
             Console.WriteLine("Enter your name: ");
-            string? Fullname = Console.ReadLine();
+            string Fullname = Console.ReadLine();
+            if (string.IsNullOrEmpty(Fullname)) 
+           Console.WriteLine("Your entry was blank");
             Console.WriteLine("Enter your Date of Birth: ");
             string? Dob = Console.ReadLine();
             Console.WriteLine("Enter your phonenumber: ");
@@ -19,7 +21,9 @@ namespace ASM
             string? Username = Console.ReadLine();
             Console.WriteLine("Enter your Password: ");
             string? Password = Console.ReadLine();
-            users.Add(new RegisteredUser(Fullname, Dob, Phone, Gender, Username, Password));
+            
+            //users.Add(new RegisteredUser(Fullname, Dob, Phone, Gender, Username, Password,role));
+            return new RegisteredUser(Fullname, Dob, Phone, Gender, Username, Password,role);
         }
     }
 }
