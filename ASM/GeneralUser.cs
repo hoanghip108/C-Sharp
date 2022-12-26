@@ -4,7 +4,7 @@ namespace ASM
     public class GeneralUser:User
     {
         public static string role { get; set; }
-        public static User Register()
+        public static RegisteredUser Register()
         {
             role = "Registered";
             Console.WriteLine("Enter your name: ");
@@ -21,8 +21,6 @@ namespace ASM
             string? Username = Console.ReadLine();
             Console.WriteLine("Enter your Password: ");
             string? Password = Console.ReadLine();
-            
-            //users.Add(new RegisteredUser(Fullname, Dob, Phone, Gender, Username, Password,role));
             return new RegisteredUser(Fullname, Dob, Phone, Gender, Username, Password,role);
         }
     }

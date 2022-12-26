@@ -61,7 +61,8 @@ namespace ASM
                 string? title = Console.ReadLine();
                 Console.WriteLine("Enter Author: " );
                 string? author = Console.ReadLine();
-                listBook.Remove( User.listBook.Single( s => s.title == title ) );  
+                listBook.Remove( User.listBook.FirstOrDefault( s => s.title == title ) ); 
+                System.Console.WriteLine("Remove success"); 
             }
         }       
     }

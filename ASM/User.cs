@@ -10,8 +10,7 @@ namespace ASM
         public string Gender { get; set;}
         public string Username { get; set; }
         public string Password { get; set; }
-        public string Role { get; set; }
-        
+        public string Role { get; set; }        
         public static List<Book> listBook = new List<Book>();      
         public User(){}
   
@@ -24,6 +23,13 @@ namespace ASM
                 this.Username = Username;
                 this.Password = Password;
                 Role = role;
+                listBook.AddRange(
+                    new List<Book>
+                                        {
+                                            new Book("John1", "Doe" ),
+                                            new Book("John2", "Doe" ),
+                                            new Book("John3", "Doe" ),
+                                        });
                 
         }
 

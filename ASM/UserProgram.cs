@@ -7,11 +7,20 @@ namespace ASM
 {
     public class UserProgram : MenuProgram
     {       
-        public List<Book> listBook = User.listBook; 
+        public List<Book> listBook;
+        
         public static List<User> users;
         public UserProgram()
         {
             users = new List<User>();
+            listBook = new List<Book>();
+            listBook.AddRange(
+                    new List<Book>
+                                        {
+                                            new Book("John1", "Doe" ),
+                                            new Book("John2", "Doe" ),
+                                            new Book("John3", "Doe" ),
+                                        });
         }   
         Manager manager1 = new Manager();
         public static bool Logged = false;
@@ -56,7 +65,8 @@ namespace ASM
             }
         }
         public void DisplayAllBooks()
-        {Console.WriteLine("*******************");
+        {
+            Console.WriteLine("*******************");
             foreach(var item in listBook)
             {   
                 Console.Write(item.title);
@@ -101,13 +111,14 @@ namespace ASM
             {
                 System.Console.WriteLine("Enter name of book: ");
                 string? name = Console.ReadLine();
-                foreach (var book in User.listBook) 
+                foreach (var book in listBook) 
                 {
                     if(name==book.title)
                     {
                         string author = book.author;
                         RegisteredUser.rentbooks.Add(new Book(name, author));
                         System.Console.WriteLine("Rent successfully!");
+                        break;
                     }
                     else
                     {
@@ -120,9 +131,20 @@ namespace ASM
         public void ReturnBooks()
         {
             System.Console.WriteLine("Enter name of book: ");
-            string? name = Console.ReadLine();
-            RegisteredUser.rentbooks.Remove( RegisteredUser.rentbooks.Single( s => s.title == name ) );
-            System.Console.WriteLine("successfully!");
+            string? name = Console.ReadLine();    
+            foreach (var book in RegisteredUser.rentbooks.ToList()) 
+                {
+                    if(name==book.title)
+                    {
+                        RegisteredUser.rentbooks.Remove(RegisteredUser.rentbooks.FirstOrDefault( s => s.title == name));
+                        System.Console.WriteLine("retun successfully!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You did not borrow that book!");
+                        break;
+                    }
+                }        
         }
         private void DisplayAllMembers()
         {
